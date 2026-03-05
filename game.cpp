@@ -1,5 +1,6 @@
 #include "game.h"
 
+#include "asset_manager.h"
 #include "input.h"
 
 Game::Game(std::string title, int width, int height)
@@ -17,6 +18,7 @@ Game::Game(std::string title, int width, int height)
     world.add_platform(13, 4, 6, 1);
 
     player = world.create_player();
+    player->sprite = AssetManager::get_game_object_sprite("player", graphics);
 
     camera.set_location(player->physics.position);
 }
@@ -54,8 +56,7 @@ void Game::render() {
     camera.render(world.tilemap);
 
     // draw the player
-    auto [player_position, color] = player->get_sprite();
-    camera.render(player_position, color);
+    camera.render(*player);
 
     // update
     graphics.update();

@@ -1,0 +1,8 @@
+{
+  "idle" : {
+    "filename" : "Jack_Idle.png",
+    "location" : [0,0],
+    "size" : [32, 32],
+    "scale" : 2
+  }
+}
