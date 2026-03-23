@@ -15,7 +15,7 @@ public:
 
 class Graphics {
 public:
-    Graphics(const std::string& title, int window_width, int window_height);
+    Graphics(std::string title, int width, int height);
     void clear();
     void update();
 
@@ -23,11 +23,11 @@ public:
     void draw_sprite(const Vec<float>& pixel, const Sprite& sprite);
 
     int get_texture_id(const std::string& image_filename);
+    void set_title(const std::string& title);
 
     const int width, height;
 
 private:
-    std::string title;
     SDL_Window* window;
     SDL_Renderer* renderer;
     std::vector<SDL_Texture*> textures;

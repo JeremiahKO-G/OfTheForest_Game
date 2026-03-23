@@ -14,8 +14,8 @@ public:
     void update(World&, GameObject&, double dt) override; // update because of physics
     Action* input(World&, GameObject&, ActionType) override;
 
-    const double cooldown = 0.1;
-    double elapsed = 0;
+    const double cooldown = 0.1; //
+    double elapsed = 0; //
 };
 
 class Running: public State {

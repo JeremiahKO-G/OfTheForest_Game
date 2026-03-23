@@ -1,8 +1,60 @@
 {
-  "idle" : {
-    "filename" : "Jack_Idle.png",
-    "location" : [0,0],
-    "size" : [32, 32],
-    "scale" : 2
+  "sprites" : [
+    {
+      "name" : "idle",
+      "filename" : "Jack_Idle.png",
+      "location" : [0,0],
+      "size" : [32, 32],
+      "scale" : 2,
+      "number_of_frames" : 24,
+      "dt_per_frame" : 0.1
+    },
+    {
+      "name" : "walking",
+      "filename" : "JackWalk.png",
+      "location" : [0,0],
+      "size" : [32, 32],
+      "scale" : 2,
+      "number_of_frames": 18,
+      "dt_per_frame" : 0.1
+    },
+    {
+      "name" : "running",
+      "filename" : "JackRun.png",
+      "location" : [0,0],
+      "size" : [32, 32],
+      "scale" : 2,
+      "number_of_frames": 10,
+      "dt_per_frame" : 0.1
+    },
+    {
+      "name" : "jumping",
+      "filename" : "JackJump.png",
+      "location" : [0,0],
+      "size" : [32, 32],
+      "scale" : 2,
+      "number_of_frames": 1,
+      "dt_per_frame" : 0.1
+    },
+    {
+      "name" : "dashing",
+      "filename" : "JackDash.png",
+      "location" : [0,0],
+      "size" : [32, 32],
+      "scale" : 2,
+      "number_of_frames": 1,
+      "dt_per_frame" : 0.1
+    }
+  ],
+  "physics" : {
+    "position" : [10, 5],
+    "velocity" : [0,0],
+    "acceleration" : [0, -30],
+    "gravity" : -30.0,
+    "damping" : 0.9,
+    "walk_acceleration" : 10.0,
+    "jump_velocity" : 20.0,
+    "dodge_velocity" : 20.0,
+    "terminal_velocity" : 30.0
   }
 }

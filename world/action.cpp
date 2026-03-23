@@ -15,17 +15,17 @@ void MoveLeft::perform(World&, GameObject& obj) {
 }
 
 void SprintRight::perform(World&, GameObject& obj) {
-    obj.physics.acceleration.x = 2*obj.physics.walk_acceleration;
+    obj.physics.acceleration.x = 5*obj.physics.walk_acceleration;
 }
 
 void SprintLeft::perform(World&, GameObject& obj) {
-    obj.physics.acceleration.x = -2*obj.physics.walk_acceleration;
+    obj.physics.acceleration.x = -5*obj.physics.walk_acceleration;
 }
 
 void DodgeLeft::perform(World&, GameObject& obj) {
-    obj.physics.velocity.x = -3*obj.physics.walk_acceleration;
+    obj.physics.velocity.x = -obj.physics.jump_velocity;
 }
 
 void DodgeRight::perform(World&, GameObject& obj) {
-    obj.physics.velocity.x = 3*obj.physics.walk_acceleration;
+    obj.physics.velocity.x = obj.physics.jump_velocity;
 }

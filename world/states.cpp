@@ -13,6 +13,7 @@ bool on_platform(World& world, GameObject& obj) {
 // Standing
 void Standing::on_enter(World&, GameObject& obj) { // color that shows when the object/player is standing
     obj.color = {255, 0, 0, 255};
+    obj.set_sprite("idle");
     obj.physics.acceleration.x = 0;
 }
 
@@ -43,6 +44,7 @@ Action* Standing::input(World& world, GameObject& obj, ActionType action_type) {
 // InAir
 void InAir::on_enter(World& world, GameObject& obj) {
     elapsed = cooldown;
+    obj.set_sprite("jumping");
     obj.color = {0, 0, 255, 255};
 }
 
@@ -67,6 +69,7 @@ Action* InAir::input(World& world, GameObject& obj, ActionType action_type) {
 
 void Running::on_enter(World&, GameObject& obj) {
     obj.color = {255, 255, 0, 255};
+    obj.set_sprite("walking");
 }
 
 Action* Running::input(World& world, GameObject& obj, ActionType action_type) {
@@ -98,6 +101,7 @@ Action* Running::input(World& world, GameObject& obj, ActionType action_type) {
 
 void Sprinting::on_enter(World&, GameObject& obj) {
     obj.color = {255, 100, 100, 255};
+    obj.set_sprite("running");
 }
 
 Action* Sprinting::input(World& world, GameObject& obj, ActionType action_type) {
@@ -130,6 +134,7 @@ Action* Sprinting::input(World& world, GameObject& obj, ActionType action_type) 
 void Dodging::on_enter(World&, GameObject& obj) {
     elapsed = cooldown;
     obj.color = {100, 0, 255, 123};
+    obj.set_sprite("dashing");
 }
 
 Action* Dodging::input(World& world, GameObject& obj, ActionType action_type) {

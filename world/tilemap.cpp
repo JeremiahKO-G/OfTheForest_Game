@@ -12,7 +12,7 @@ Tilemap::Tilemap(int width, int height)
     }
 
     // fill map with open tiles
-    std::fill(std::begin(tiles), std::end(tiles), Tile::Open);
+    // std::fill(std::begin(tiles), std::end(tiles), Tile::Open);
 }
 
 void Tilemap::check_bounds(int x, int y) const {
