@@ -1,0 +1,706 @@
+{
+    "height": 20,
+    "player_spawn_location": [
+        12,
+        7
+    ],
+    "tile_filenames": [
+        "forest-tiles.json"
+    ],
+    "tiles": [
+        {
+            "pos": [
+                1,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block2"
+        },
+        {
+            "pos": [
+                1,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block2"
+        },
+        {
+            "pos": [
+                1,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                1,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_bottom_left_corner"
+        },
+        {
+            "pos": [
+                1,
+                9
+            ],
+            "tile": "forest-tiles.json:tree_left_side"
+        },
+        {
+            "pos": [
+                1,
+                10
+            ],
+            "tile": "forest-tiles.json:tree_left_side"
+        },
+        {
+            "pos": [
+                1,
+                11
+            ],
+            "tile": "forest-tiles.json:tree_top_left_corner"
+        },
+        {
+            "pos": [
+                2,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block1"
+        },
+        {
+            "pos": [
+                2,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block2"
+        },
+        {
+            "pos": [
+                2,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block3"
+        },
+        {
+            "pos": [
+                2,
+                5
+            ],
+            "tile": "forest-tiles.json:tree_trunk_base_left"
+        },
+        {
+            "pos": [
+                2,
+                7
+            ],
+            "tile": "forest-tiles.json:left_bottom_leaves"
+        },
+        {
+            "pos": [
+                2,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_bottom_middle_left_corner"
+        },
+        {
+            "pos": [
+                2,
+                9
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                2,
+                10
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                2,
+                11
+            ],
+            "tile": "forest-tiles.json:tree_top_left_middle_corner"
+        },
+        {
+            "pos": [
+                3,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block1"
+        },
+        {
+            "pos": [
+                3,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block1"
+        },
+        {
+            "pos": [
+                3,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block2"
+        },
+        {
+            "pos": [
+                3,
+                5
+            ],
+            "tile": "forest-tiles.json:tree_trunk_base"
+        },
+        {
+            "pos": [
+                3,
+                6
+            ],
+            "tile": "forest-tiles.json:tree_mid_trunk"
+        },
+        {
+            "pos": [
+                3,
+                7
+            ],
+            "tile": "forest-tiles.json:tree_top_trunk"
+        },
+        {
+            "pos": [
+                3,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                3,
+                9
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                3,
+                10
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                3,
+                11
+            ],
+            "tile": "forest-tiles.json:tree_top_middle_corner"
+        },
+        {
+            "pos": [
+                4,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block3"
+        },
+        {
+            "pos": [
+                4,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block1"
+        },
+        {
+            "pos": [
+                4,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block2"
+        },
+        {
+            "pos": [
+                4,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_bottom_middle_right_corner"
+        },
+        {
+            "pos": [
+                4,
+                9
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                4,
+                10
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                4,
+                11
+            ],
+            "tile": "forest-tiles.json:tree_top_middle_corner"
+        },
+        {
+            "pos": [
+                5,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block2"
+        },
+        {
+            "pos": [
+                5,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block2"
+        },
+        {
+            "pos": [
+                5,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                5,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_bottom_right_corner"
+        },
+        {
+            "pos": [
+                5,
+                9
+            ],
+            "tile": "forest-tiles.json:tree_right_side"
+        },
+        {
+            "pos": [
+                5,
+                10
+            ],
+            "tile": "forest-tiles.json:tree_right_side"
+        },
+        {
+            "pos": [
+                5,
+                11
+            ],
+            "tile": "forest-tiles.json:tree_top_right_corner"
+        },
+        {
+            "pos": [
+                6,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block1"
+        },
+        {
+            "pos": [
+                6,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block1"
+        },
+        {
+            "pos": [
+                6,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block3"
+        },
+        {
+            "pos": [
+                7,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block1"
+        },
+        {
+            "pos": [
+                7,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block1"
+        },
+        {
+            "pos": [
+                7,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                8,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block1"
+        },
+        {
+            "pos": [
+                8,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block1"
+        },
+        {
+            "pos": [
+                8,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                9,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block3"
+        },
+        {
+            "pos": [
+                9,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block2"
+        },
+        {
+            "pos": [
+                9,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block3"
+        },
+        {
+            "pos": [
+                10,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block1"
+        },
+        {
+            "pos": [
+                10,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block1"
+        },
+        {
+            "pos": [
+                10,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block3"
+        },
+        {
+            "pos": [
+                11,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block2"
+        },
+        {
+            "pos": [
+                11,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block3"
+        },
+        {
+            "pos": [
+                11,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                12,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block3"
+        },
+        {
+            "pos": [
+                12,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block1"
+        },
+        {
+            "pos": [
+                12,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block3"
+        },
+        {
+            "pos": [
+                13,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block1"
+        },
+        {
+            "pos": [
+                13,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block3"
+        },
+        {
+            "pos": [
+                13,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block2"
+        },
+        {
+            "pos": [
+                14,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block2"
+        },
+        {
+            "pos": [
+                14,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block3"
+        },
+        {
+            "pos": [
+                14,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                15,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block3"
+        },
+        {
+            "pos": [
+                15,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block1"
+        },
+        {
+            "pos": [
+                15,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                16,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block1"
+        },
+        {
+            "pos": [
+                16,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block2"
+        },
+        {
+            "pos": [
+                16,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                17,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block3"
+        },
+        {
+            "pos": [
+                17,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block1"
+        },
+        {
+            "pos": [
+                17,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                18,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block2"
+        },
+        {
+            "pos": [
+                18,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block2"
+        },
+        {
+            "pos": [
+                18,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                18,
+                7
+            ],
+            "tile": "forest-tiles.json:tree_bottom_left_corner"
+        },
+        {
+            "pos": [
+                18,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_left_side"
+        },
+        {
+            "pos": [
+                18,
+                9
+            ],
+            "tile": "forest-tiles.json:tree_left_side"
+        },
+        {
+            "pos": [
+                18,
+                10
+            ],
+            "tile": "forest-tiles.json:tree_top_left_corner"
+        },
+        {
+            "pos": [
+                19,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block3"
+        },
+        {
+            "pos": [
+                19,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block3"
+        },
+        {
+            "pos": [
+                19,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                19,
+                5
+            ],
+            "tile": "forest-tiles.json:tree_mid_trunk"
+        },
+        {
+            "pos": [
+                19,
+                6
+            ],
+            "tile": "forest-tiles.json:tree_top_trunk"
+        },
+        {
+            "pos": [
+                19,
+                7
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                19,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                19,
+                9
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                19,
+                10
+            ],
+            "tile": "forest-tiles.json:tree_top_middle_corner"
+        },
+        {
+            "pos": [
+                20,
+                2
+            ],
+            "tile": "forest-tiles.json:deep_dirt_block1"
+        },
+        {
+            "pos": [
+                20,
+                3
+            ],
+            "tile": "forest-tiles.json:dirt_block2"
+        },
+        {
+            "pos": [
+                20,
+                4
+            ],
+            "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                20,
+                7
+            ],
+            "tile": "forest-tiles.json:tree_bottom_right_corner"
+        },
+        {
+            "pos": [
+                20,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_right_side"
+        },
+        {
+            "pos": [
+                20,
+                9
+            ],
+            "tile": "forest-tiles.json:tree_right_side"
+        },
+        {
+            "pos": [
+                20,
+                10
+            ],
+            "tile": "forest-tiles.json:tree_top_right_corner"
+        }
+    ],
+    "width": 100
+}

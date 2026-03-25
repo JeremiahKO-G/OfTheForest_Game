@@ -53,7 +53,7 @@
     "gravity" : -30.0,
     "damping" : 0.9,
     "walk_acceleration" : 10.0,
-    "jump_velocity" : 20.0,
+    "jump_velocity" : 10.0,
     "dodge_velocity" : 20.0,
     "terminal_velocity" : 30.0
   }

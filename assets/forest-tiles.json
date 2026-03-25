@@ -1,0 +1,355 @@
+{
+  "tiles": [
+    {
+      "sprite": {
+        "name": "tree_top_left_corner",
+        "filename": "forest_sprites.png",
+        "location": [96, 0],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_top_left_middle_corner",
+        "filename": "forest_sprites.png",
+        "location": [128, 0],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_top_middle_corner",
+        "filename": "forest_sprites.png",
+        "location": [160, 0],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_top_right_middle_corner",
+        "filename": "forest_sprites.png",
+        "location": [192, 0],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_top_right_corner",
+        "filename": "forest_sprites.png",
+        "location": [224, 0],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_left_side",
+        "filename": "forest_sprites.png",
+        "location": [96, 32],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_right_side",
+        "filename": "forest_sprites.png",
+        "location": [224, 32],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "grass_block1",
+        "filename": "forest_sprites.png",
+        "location": [0, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "grass_block2",
+        "filename": "forest_sprites.png",
+        "location": [32, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "grass_block3",
+        "filename": "forest_sprites.png",
+        "location": [64, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_bottom_left_corner",
+        "filename": "forest_sprites.png",
+        "location": [96, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_bottom_middle_left_corner",
+        "filename": "forest_sprites.png",
+        "location": [128, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_leaves",
+        "filename": "forest_sprites.png",
+        "location": [160, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_bottom_middle_right_corner",
+        "filename": "forest_sprites.png",
+        "location": [192, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_bottom_right_corner",
+        "filename": "forest_sprites.png",
+        "location": [224, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_block1",
+        "filename": "forest_sprites.png",
+        "location": [0, 96],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_block2",
+        "filename": "forest_sprites.png",
+        "location": [32, 96],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_block3",
+        "filename": "forest_sprites.png",
+        "location": [64, 96],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "left_bottom_leaves",
+        "filename": "forest_sprites.png",
+        "location": [128, 96],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_top_trunk",
+        "filename": "forest_sprites.png",
+        "location": [160, 96],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "right_bottom_leaves",
+        "filename": "forest_sprites.png",
+        "location": [192, 96],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "deep_dirt_block1",
+        "filename": "forest_sprites.png",
+        "location": [0, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "deep_dirt_block2",
+        "filename": "forest_sprites.png",
+        "location": [32, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "deep_dirt_block3",
+        "filename": "forest_sprites.png",
+        "location": [64, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_mid_trunk",
+        "filename": "forest_sprites.png",
+        "location": [160, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_trunk_base_left",
+        "filename": "forest_sprites.png",
+        "location": [128, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_trunk_base",
+        "filename": "forest_sprites.png",
+        "location": [160, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    }
+  ]
+}

@@ -3,6 +3,8 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_surface.h>
 
+
+
 Graphics::Graphics(std::string title, int width, int height)
     : width{width}, height{height} {
     // Set up window/renderer
@@ -37,6 +39,7 @@ void Graphics::update() {
 void Graphics::set_title(const std::string &title) {
     SDL_SetWindowTitle(window, title.c_str());
 }
+
 
 int Graphics::get_texture_id(const std::string& image_filename) {
     auto search = texture_ids.find(image_filename);
