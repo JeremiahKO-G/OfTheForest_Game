@@ -3,8 +3,6 @@
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_surface.h>
 
-
-
 Graphics::Graphics(std::string title, int width, int height)
     : width{width}, height{height} {
     // Set up window/renderer
@@ -13,7 +11,7 @@ Graphics::Graphics(std::string title, int width, int height)
         SDL_Log("Couldn't create window/renderer: %s", SDL_GetError());
     }
     SDL_SetRenderLogicalPresentation(renderer, width, height, SDL_LOGICAL_PRESENTATION_LETTERBOX);
-
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 }
 
 void Graphics::draw(const SDL_FRect& rect, const Color& color, bool filled) {

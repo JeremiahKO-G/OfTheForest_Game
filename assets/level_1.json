@@ -479,6 +479,20 @@
         },
         {
             "pos": [
+                14,
+                7
+            ],
+            "tile": "forest-tiles.json:tree_bottom_left_corner"
+        },
+        {
+            "pos": [
+                14,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_top_left_corner"
+        },
+        {
+            "pos": [
                 15,
                 2
             ],
@@ -497,6 +511,34 @@
                 4
             ],
             "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                15,
+                5
+            ],
+            "tile": "forest-tiles.json:tree_trunk_base_doorway"
+        },
+        {
+            "pos": [
+                15,
+                6
+            ],
+            "tile": "forest-tiles.json:tree_mid_trunk"
+        },
+        {
+            "pos": [
+                15,
+                7
+            ],
+            "tile": "forest-tiles.json:tree_leaves"
+        },
+        {
+            "pos": [
+                15,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_top_middle_corner"
         },
         {
             "pos": [
@@ -521,6 +563,20 @@
         },
         {
             "pos": [
+                16,
+                7
+            ],
+            "tile": "forest-tiles.json:tree_bottom_middle_right_corner"
+        },
+        {
+            "pos": [
+                16,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_top_middle_corner"
+        },
+        {
+            "pos": [
                 17,
                 2
             ],
@@ -539,6 +595,20 @@
                 4
             ],
             "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                17,
+                7
+            ],
+            "tile": "forest-tiles.json:tree_bottom_right_corner"
+        },
+        {
+            "pos": [
+                17,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_top_right_corner"
         },
         {
             "pos": [

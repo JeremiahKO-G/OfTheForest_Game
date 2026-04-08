@@ -4,10 +4,14 @@
 #include "game_object.h"
 #include "graphics.h"
 #include "audio.h"
+#include "events.h"
+
+using Events = std::map<std::string, Event*>;
 
 class Game {
 public:
     Game(std::string title, int width, int height);
+    ~Game();
     void handle_event(SDL_Event* event);
     void input();
     void update();
@@ -25,4 +29,13 @@ private:
     Uint64 performance_frequency;
     Uint64 prev_counter;
     float lag;
+
+    // events
+    Events events;
+    void get_events();
+
+    // level help
+    void create_player();
+    int current_level{1};
+    void load_level();
 };

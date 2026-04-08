@@ -3,20 +3,26 @@
 #include "asset_manager.h"
 #include "fsm.h"
 #include "input.h"
+#include "keyboard_input.h"
+#include "states.h"
 
 Game::Game(std::string title, int width, int height)
     : graphics{title, width, height}, camera{graphics, 64}, dt{1.0/60.0}, lag{0.0}, performance_frequency{SDL_GetPerformanceFrequency()}, prev_counter{SDL_GetPerformanceCounter()} {
+
+    // load events
+    get_events();
 
     // load the first "level"
     Level level{"level_1"};
     AssetManager::get_level_details(graphics, level);
 
-    // create the world for the first level
-    world = new World(level, audio);
-
     // Give player its assets then put it in the correct state
-    player = std::unique_ptr<GameObject>(world->create_player(level));
+    create_player();
     AssetManager::get_game_object_details("player", graphics, *player);
+
+    // create the world for the first level
+    world = new World(level, audio, player.get(), events);
+
     // use the spawn location's position
     player->physics.position = {static_cast<float>(level.player_spawn_location.x), static_cast<float>(level.player_spawn_location.y)};
     player->fsm->current_state->on_enter(*world, *player);
@@ -24,6 +30,14 @@ Game::Game(std::string title, int width, int height)
     camera.set_location(player->physics.position);
     audio.play_sounds("background", true);
 }
+
+Game::~Game() {
+    delete world;
+    for (auto [_, event]: events) {
+        delete event;
+    }
+}
+
 
 void Game::handle_event(SDL_Event* event) {
     player->input->collect_discrete_event(event);
@@ -48,6 +62,9 @@ void Game::update() {
         camera.update(player->physics.position + displacement, dt);
         lag -= dt;
     }
+    if (world->end_level) {
+        load_level();
+    }
 }
 
 void Game::render() {
@@ -64,4 +81,56 @@ void Game::render() {
     graphics.update();
 }
 
+void Game::get_events() {
+    events["next_level"] = new NextLevel;
+}
 
+void Game::load_level() {
+    std::string level_name = "level_" + std::to_string(++current_level);
+    Level level{level_name};
+    AssetManager::get_level_details(graphics, level);
+
+    // create the world
+    delete world;
+    world = new World(level, audio, player.get(), events);
+
+    player->physics.position = {static_cast<float>(level.player_spawn_location.x), static_cast<float>(level.player_spawn_location.y)};
+    camera.set_location(player->physics.position);
+    audio.play_sounds("background", true);
+}
+
+
+void Game::create_player() {
+    // create FSM
+    Transitions transitions ={
+        {{StateType::Standing, Transition::Jump}, StateType::InAir},
+        {{StateType::Standing, Transition::Dodge}, StateType::Dodging},
+        {{StateType::Standing, Transition::Move}, StateType::Running},
+        {{StateType::InAir, Transition::Stop}, StateType::Standing},
+        {{StateType::InAir, Transition::Move}, StateType::Running},
+        {{StateType::Running, Transition::Stop}, StateType::Standing},
+        {{StateType::Running , Transition::Jump}, StateType::InAir},
+        {{StateType::Running, Transition::Sprint}, StateType::Sprinting},
+        {{StateType::Running, Transition::Dodge}, StateType::Dodging},
+        {{StateType::Sprinting, Transition::Stop}, StateType::Standing},
+        {{StateType::Sprinting, Transition::Move}, StateType::Running},
+        {{StateType::Sprinting, Transition::Jump}, StateType::InAir},
+        {{StateType::Sprinting, Transition::Dodge}, StateType::Dodging},
+        {{StateType::Dodging, Transition::Stop}, StateType::Standing},
+        {{StateType::Dodging, Transition::Move}, StateType::Running},
+        {{StateType::Dodging, Transition::Sprint}, StateType::Sprinting}
+    };
+    States states = {
+        {StateType::Standing, new Standing()},
+        {StateType::InAir, new InAir()},
+        {StateType::Running, new Running()},
+        {StateType::Sprinting, new Sprinting()},
+        {StateType::Dodging, new Dodging}
+    };
+    FSM* fsm = new FSM{transitions, states, StateType::Standing};
+
+    // player input
+    KeyboardInput* input = new KeyboardInput();
+
+    player = std::make_unique<GameObject>(Vec<float>{1,1}, fsm, input, Color{255, 0, 0, 255});
+}

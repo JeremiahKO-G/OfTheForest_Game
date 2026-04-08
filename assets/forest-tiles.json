@@ -350,6 +350,357 @@
       },
       "blocking": true,
       "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_stone1",
+        "filename": "forest_sprites.png",
+        "location": [0, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_stone2",
+        "filename": "forest_sprites.png",
+        "location": [32, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dirt_stone3",
+        "filename": "forest_sprites.png",
+        "location": [64, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "top_stone1",
+        "filename": "forest_sprites.png",
+        "location": [256, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "top_stone2",
+        "filename": "forest_sprites.png",
+        "location": [288, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "top_stone3",
+        "filename": "forest_sprites.png",
+        "location": [320, 64],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "stone1",
+        "filename": "forest_sprites.png",
+        "location": [256, 96],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "stone2",
+        "filename": "forest_sprites.png",
+        "location": [288, 96],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "stone3",
+        "filename": "forest_sprites.png",
+        "location": [320, 96],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "tree_trunk_base_doorway",
+        "filename": "forest_sprites.png",
+        "location": [224, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": "next_level"
+    },
+    {
+      "sprite": {
+        "name": "top_dirt_solid_chunk",
+        "filename": "forest_sprites.png",
+        "location": [0, 0],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "mid_dirt_solid_chunk",
+        "filename": "forest_sprites.png",
+        "location": [32, 0],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "low_dirt_solid_chunk",
+        "filename": "forest_sprites.png",
+        "location": [64, 0],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "deep_dirt_solid_chunk",
+        "filename": "forest_sprites.png",
+        "location": [96, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "stone_solid_chunk",
+        "filename": "forest_sprites.png",
+        "location": [96, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "top_stalactite_up",
+        "filename": "forest_sprites.png",
+        "location": [256, 0],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "bottom_stalactite_up",
+        "filename": "forest_sprites.png",
+        "location": [256, 32],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "dark_stone",
+        "filename": "forest_sprites.png",
+        "location": [288, 32],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "cave_portal",
+        "filename": "forest_sprites.png",
+        "location": [320, 32],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": "next_level"
+    },
+    {
+      "sprite": {
+        "name": "stalactite_down_sml",
+        "filename": "forest_sprites.png",
+        "location": [256, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "top_stalactite_down_lrg",
+        "filename": "forest_sprites.png",
+        "location": [288, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "bottom_stalactite_down_lrg",
+        "filename": "forest_sprites.png",
+        "location": [288, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": true,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "sml_tree1_bottom_half",
+        "filename": "forest_sprites.png",
+        "location": [128, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "sml_tree1_top_half",
+        "filename": "forest_sprites.png",
+        "location": [128, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "sml_tree2_top_half",
+        "filename": "forest_sprites.png",
+        "location": [192, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "sml_tree2_bottom_half",
+        "filename": "forest_sprites.png",
+        "location": [192, 160],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
+    },
+    {
+      "sprite": {
+        "name": "sml_tree1_middle_half",
+        "filename": "forest_sprites.png",
+        "location": [224, 128],
+        "size": [32, 32],
+        "scale": 2,
+        "number_of_frames": 1,
+        "dt_per_frame": -1
+      },
+      "blocking": false,
+      "event_name": ""
     }
   ]
 }
