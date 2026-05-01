@@ -1,8 +1,31 @@
 {
+    "enemies": [
+        {
+            "enemy": "stump",
+            "pos": [
+                22.0,
+                5.0
+            ]
+        },
+        {
+            "enemy": "stump",
+            "pos": [
+                24.0,
+                6.0
+            ]
+        },
+        {
+            "enemy": "stump",
+            "pos": [
+                43.0,
+                2.0
+            ]
+        }
+    ],
     "height": 20,
     "player_spawn_location": [
-        10,
-        17
+        11,
+        16
     ],
     "tile_filenames": [
         "forest-tiles.json"
@@ -2212,6 +2235,18 @@
                 4
             ],
             "tile": "forest-tiles.json:tree_top_right_corner"
+        }
+    ],
+    "sounds" : [
+        {
+            "name": "background",
+            "filename" : "Wildflowers.mp3",
+            "loop_forever": true
+        },
+        {
+            "name": "jump",
+            "filename" : "Jump.wav",
+            "loop_forever": false
         }
     ],
     "width": 100

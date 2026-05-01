@@ -4076,5 +4076,17 @@
             "tile": "forest-tiles.json:stone1"
         }
     ],
+    "sounds" : [
+        {
+            "name": "background",
+            "filename" : "ShouldersOfGiants.mp3",
+            "loop_forever": true
+        },
+        {
+            "name": "jump",
+            "filename" : "Jump.wav",
+            "loop_forever": false
+        }
+    ],
     "width": 100
 }

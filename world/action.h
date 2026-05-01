@@ -9,7 +9,8 @@ enum class ActionType {
     SprintLeft,
     SprintRight,
     DodgeLeft,
-    DodgeRight
+    DodgeRight,
+    AttackAll
 };
 
 class World;

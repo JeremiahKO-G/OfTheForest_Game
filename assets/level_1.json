@@ -772,5 +772,34 @@
             "tile": "forest-tiles.json:tree_top_right_corner"
         }
     ],
+    "sounds" : [
+        {
+            "name": "background",
+            "filename" : "Wildflowers.mp3",
+            "loop_forever": true
+        },
+        {
+            "name": "jump",
+            "filename" : "Jump.wav",
+            "loop_forever": false
+        }
+    ],
+    "backgrounds" : [
+        {
+            "filename": "SkyBG1.png",
+            "scale" : 5,
+            "distance": 4
+        },
+        {
+            "filename" : "CloudBG1.png",
+            "scale" : 5,
+            "distance" : 2
+        },
+        {
+            "filename" : "PlainsBG1.png",
+            "scale" : 5,
+            "distance" : 1
+        }
+    ],
     "width": 100
 }

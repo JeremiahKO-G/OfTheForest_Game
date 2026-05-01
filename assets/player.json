@@ -56,5 +56,9 @@
     "jump_velocity" : 10.0,
     "dodge_velocity" : 20.0,
     "terminal_velocity" : 30.0
-  }
+  },
+  "size" : [1,1],
+  "health" : 300,
+  "max_health" : 300,
+  "damage" : 10
 }

@@ -1,9 +1,12 @@
 #include "action.h"
+
+#include "audio.h"
 #include "game_object.h"
 #include "world.h"
 
-void Jump::perform(World&, GameObject& obj) {
+void Jump::perform(World& world, GameObject& obj) {
     obj.physics.velocity.y = obj.physics.jump_velocity;
+    world.audio->play_sounds("jump");
 }
 
 void MoveRight::perform(World&, GameObject& obj) {
@@ -23,9 +26,9 @@ void SprintLeft::perform(World&, GameObject& obj) {
 }
 
 void DodgeLeft::perform(World&, GameObject& obj) {
-    obj.physics.velocity.x = -obj.physics.jump_velocity;
+    obj.physics.velocity.x = -obj.physics.dodge_velocity;
 }
 
 void DodgeRight::perform(World&, GameObject& obj) {
-    obj.physics.velocity.x = obj.physics.jump_velocity;
+    obj.physics.velocity.x = obj.physics.dodge_velocity;
 }
