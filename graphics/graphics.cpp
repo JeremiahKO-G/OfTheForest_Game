@@ -64,7 +64,7 @@ int Graphics::get_texture_id(const std::string& image_filename) {
     }
 }
 
-void Graphics::draw_sprite(const Vec<float> &pixel, const Sprite &sprite, bool flash, Color) {
+void Graphics::draw_sprite(const Vec<float> &pixel, const Sprite &sprite, bool flash) {
     if (sprite.texture_id < 0) { // sprite has no texture
         return;
     }
