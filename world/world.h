@@ -28,6 +28,7 @@ public:
     void load_level(const Level& level);
 
     Tilemap tilemap;
+    Tilemap fg_tilemap;
     bool end_level{false};
     bool end_game{false};
 

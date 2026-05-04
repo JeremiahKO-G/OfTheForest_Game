@@ -10,7 +10,8 @@
 
 
 World::World(const Level& level, Audio& audio, GameObject* player, Events events)
-    : tilemap{level.width, level.height}, audio{&audio}, player{player}, events{events}, quadtree{AABB{{level.width / 2.0f, level.height / 2.0f}, {level.width / 2.0f, level.height / 2.0f}}}{
+    : tilemap{level.width, level.height}, fg_tilemap{level.width, level.height}, audio{&audio}, player{player}, events{events},
+      quadtree{AABB{{level.width / 2.0f, level.height / 2.0f}, {level.width / 2.0f, level.height / 2.0f}}} {
     load_level(level);
 }
 
@@ -185,7 +186,7 @@ void World::update_object(GameObject* obj, double dt) {
     velocity.y = std::clamp(velocity.y, -terminal_velocity, terminal_velocity);
 
     // check for x collisions
-    Vec<float> future_position{position.x, player->physics.position.y};
+    Vec<float> future_position{position.x, obj->physics.position.y};
     Vec<float> future_velocity{velocity.x, 0};
     move_to(future_position, obj->size, future_velocity);
 
@@ -203,6 +204,10 @@ void World::update_object(GameObject* obj, double dt) {
 void World::load_level(const Level& level) {
     for (const auto& [pos, tile_id] : level.tile_locations) {
         tilemap(pos.x, pos.y) = level.tile_types.at(tile_id);
+    }
+    // grab the info for foreground_locations
+    for (const auto& [pos, tile_id] : level.foreground_locations) {
+        fg_tilemap(pos.x, pos.y) = level.tile_types.at(tile_id);
     }
     audio->load_sounds({level.sounds});
 

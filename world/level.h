@@ -20,6 +20,7 @@ public:
     int height{0};
     std::vector<std::string> tile_filenames;
     TileLocations tile_locations;
+    TileLocations foreground_locations;
     std::map<std::string, Tile> tile_types;
     std::vector<Sound> sounds;
     std::vector<Background> backgrounds;

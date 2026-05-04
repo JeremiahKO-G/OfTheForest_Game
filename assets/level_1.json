@@ -1,8 +1,77 @@
 {
+    "backgrounds": [
+        {
+            "distance": 4.0,
+            "filename": "SkyBG1.png",
+            "scale": 5.0
+        },
+        {
+            "distance": 2.0,
+            "filename": "CloudBG1.png",
+            "scale": 5.0
+        },
+        {
+            "distance": 1.0,
+            "filename": "PlainsBG1.png",
+            "scale": 5.0
+        }
+    ],
+    "fg_tiles": [
+        {
+            "pos": [
+                20,
+                7
+            ],
+            "tile": "forest-tiles.json:tree_bottom_right_corner"
+        },
+        {
+            "pos": [
+                20,
+                8
+            ],
+            "tile": "forest-tiles.json:tree_right_side"
+        },
+        {
+            "pos": [
+                20,
+                9
+            ],
+            "tile": "forest-tiles.json:tree_right_side"
+        },
+        {
+            "pos": [
+                20,
+                10
+            ],
+            "tile": "forest-tiles.json:tree_top_right_corner"
+        }
+    ],
     "height": 20,
     "player_spawn_location": [
         12,
         7
+    ],
+    "sounds": [
+        {
+            "filename": "Wildflowers.mp3",
+            "loop_forever": true,
+            "name": "background"
+        },
+        {
+            "filename": "Jump.wav",
+            "loop_forever": false,
+            "name": "jump"
+        },
+        {
+            "filename": "Dash.wav",
+            "loop_forever": false,
+            "name": "dash"
+        },
+        {
+            "filename": "WalkGrassShort.mp3",
+            "loop_forever": false,
+            "name": "walk"
+        }
     ],
     "tile_filenames": [
         "forest-tiles.json"
@@ -311,6 +380,13 @@
         },
         {
             "pos": [
+                6,
+                5
+            ],
+            "tile": "forest-tiles.json:tree_top_left_corner"
+        },
+        {
+            "pos": [
                 7,
                 2
             ],
@@ -329,6 +405,13 @@
                 4
             ],
             "tile": "forest-tiles.json:grass_block1"
+        },
+        {
+            "pos": [
+                7,
+                5
+            ],
+            "tile": "forest-tiles.json:tree_top_right_corner"
         },
         {
             "pos": [
@@ -559,7 +642,7 @@
                 16,
                 4
             ],
-            "tile": "forest-tiles.json:grass_block1"
+            "tile": "forest-tiles.json:grass_block2"
         },
         {
             "pos": [
@@ -770,35 +853,6 @@
                 10
             ],
             "tile": "forest-tiles.json:tree_top_right_corner"
-        }
-    ],
-    "sounds" : [
-        {
-            "name": "background",
-            "filename" : "Wildflowers.mp3",
-            "loop_forever": true
-        },
-        {
-            "name": "jump",
-            "filename" : "Jump.wav",
-            "loop_forever": false
-        }
-    ],
-    "backgrounds" : [
-        {
-            "filename": "SkyBG1.png",
-            "scale" : 5,
-            "distance": 4
-        },
-        {
-            "filename" : "CloudBG1.png",
-            "scale" : 5,
-            "distance" : 2
-        },
-        {
-            "filename" : "PlainsBG1.png",
-            "scale" : 5,
-            "distance" : 1
         }
     ],
     "width": 100

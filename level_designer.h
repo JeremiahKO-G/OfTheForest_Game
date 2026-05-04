@@ -5,6 +5,8 @@
 #include "level.h"
 #include "vec.h"
 
+enum class DesignerMode{Middleground, Foreground};
+
 class LevelDesigner {
 public:
     LevelDesigner(const std::string& level_name, int width, int height);
@@ -16,6 +18,7 @@ public:
 private:
     Graphics graphics;
     Tilemap tilemap;
+    Tilemap fg_tilemap;
     Level level;
 
     Vec<int> selected_tile{-1, -1};
@@ -38,6 +41,9 @@ private:
     void update_title();
     void draw_tile_display();
     void update_tilemap();
+    void update_fg_tilemap();
     void place_player();
     void place_enemy(std::string enemy_name);
+
+    DesignerMode mode{DesignerMode::Foreground};
 };

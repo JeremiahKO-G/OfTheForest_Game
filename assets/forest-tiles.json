@@ -10,7 +10,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {
@@ -23,7 +23,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {
@@ -36,7 +36,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {
@@ -49,7 +49,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {
@@ -62,7 +62,7 @@
         "number_of_frames": 1,
         "dt_per_frame": -1
       },
-      "blocking": true,
+      "blocking": false,
       "event_name": ""
     },
     {

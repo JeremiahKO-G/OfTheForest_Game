@@ -5,6 +5,7 @@
 #include "fsm.h"
 #include "input.h"
 #include "keyboard_input.h"
+#include "level.h"
 #include "states.h"
 
 Game::Game(std::string title, int width, int height)
@@ -72,6 +73,9 @@ void Game::update() {
                 if (world->end_game) {
                     mode = GameMode::GameOver;
                 }
+                if (final_level) {
+                    mode = GameMode::Win;
+                }
                 break;
         }
         lag -= dt;
@@ -95,8 +99,13 @@ void Game::render() {
         camera.render(*obj);
     }
 
+    camera.render(world->fg_tilemap);
+
     if (mode == GameMode::GameOver) {
         camera.render_game_over();
+    }
+    if (mode == GameMode::Win) {
+        camera.render_win();
     }
 
     // update
@@ -109,24 +118,29 @@ void Game::get_events() {
 
 void Game::load_level() {
     std::string level_name = "level_" + std::to_string(++current_level);
-    Level level{level_name};
-    AssetManager::get_level_details(graphics, level);
-
-    // create the world
-    delete world;
-    world = new World(level, audio, player.get(), events);
-
-    // assets for objs
-    for (auto obj : world->game_objects) {
-        if (obj == world->player) continue;
-        update_enemy(*obj);
-        AssetManager::get_game_object_details(obj->obj_name + "-enemy", graphics, *obj, true);
+    if (current_level == 4) {
+        final_level = true;
     }
+    else {
+        Level level{level_name};
+        AssetManager::get_level_details(graphics, level);
 
-    player->physics.position = {static_cast<float>(level.player_spawn_location.x), static_cast<float>(level.player_spawn_location.y)};
-    player->fsm->current_state->on_enter(*world, *player);
-    camera.set_location(player->physics.position);
-    audio.play_sounds("background", true);
+        // create the world
+        delete world;
+        world = new World(level, audio, player.get(), events);
+
+        // assets for objs
+        for (auto obj : world->game_objects) {
+            if (obj == world->player) continue;
+            update_enemy(*obj);
+            AssetManager::get_game_object_details(obj->obj_name + "-enemy", graphics, *obj, true);
+        }
+
+        player->physics.position = {static_cast<float>(level.player_spawn_location.x), static_cast<float>(level.player_spawn_location.y)};
+        player->fsm->current_state->on_enter(*world, *player);
+        camera.set_location(player->physics.position);
+        audio.play_sounds("background", true);
+    }
 }
 
 

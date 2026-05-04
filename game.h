@@ -6,7 +6,7 @@
 #include "audio.h"
 #include "events.h"
 
-enum class GameMode{Playing, GameOver};
+enum class GameMode{Playing, GameOver, Win};
 
 using Events = std::map<std::string, Event*>;
 
@@ -40,6 +40,7 @@ private:
     void create_player();
     void update_enemy(GameObject& );
     int current_level{0};
+    bool final_level{false};
     void load_level();
 
     // game state

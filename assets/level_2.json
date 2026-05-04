@@ -4083,9 +4083,31 @@
             "loop_forever": true
         },
         {
-            "name": "jump",
-            "filename" : "Jump.wav",
-            "loop_forever": false
+            "filename": "Jump.wav",
+            "loop_forever": false,
+            "name": "jump"
+        },
+        {
+            "filename": "Dash.wav",
+            "loop_forever": false,
+            "name": "dash"
+        },
+        {
+            "filename": "WalkStone.mp3",
+            "loop_forever": false,
+            "name": "walk"
+        }
+    ],
+    "backgrounds" : [
+        {
+            "distance": 2.0,
+            "filename": "SkyBG1.png",
+            "scale": 5.0
+        },
+        {
+            "distance": 4.0,
+            "filename": "Mountains.png",
+            "scale": 5.0
         }
     ],
     "width": 100

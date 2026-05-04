@@ -41,6 +41,13 @@ inline void to_json(nlohmann::json& j, const Level& level) {
             {"tile", tile}
         });
     }
+    // need to add function to write foreground_locations to json here
+    for (const auto& [pos, tile] : level.foreground_locations) {
+        j["fg_tiles"].push_back({
+            {"pos", pos},
+            {"tile", tile}
+        });
+    }
     for (const auto& [pos, enemy] : level.enemy_locations) {
         j["enemies"].push_back({
         {"pos", pos},
@@ -61,6 +68,14 @@ inline void from_json(const nlohmann::json& j, Level& level) {
             Vec<int> pos = t.at("pos").get<Vec<int>>();
             std::string tile_id = t.at("tile").get<std::string>();
             level.tile_locations[pos] = tile_id;
+        }
+    }
+    // grab the info for foreground tiles
+    if (j.contains("fg_tiles")) {
+        for (const auto& fg_t : j.at("fg_tiles")) {
+            Vec<int> pos = fg_t.at("pos").get<Vec<int>>();
+            std::string tile_id = fg_t.at("tile").get<std::string>();
+            level.foreground_locations[pos] = tile_id;
         }
     }
     if (j.contains("enemies")) {

@@ -8,23 +8,31 @@ constexpr int COLUMNS = 7;
 constexpr float PADDING = 16.0f;
 
 LevelDesigner::LevelDesigner(const std::string &level_name, int width, int height)
-    : graphics{"Level Designer", 1280, 720}, tilemap{width, height}, level{level_name},
-    dt{0.1}, performance_frequency{SDL_GetPerformanceFrequency()}, prev_counter{SDL_GetPerformanceCounter()}, lag{0.0},
-    display_rect{0.0f, 0.0f, graphics.width*(1.0f/2.0f), static_cast<float>(graphics.height)},
-    tiles_rect{graphics.width*(1.0f/2.0f), 0.0f, graphics.width*(1.0f/2.0f), static_cast<float>(graphics.height)}{
+    : graphics{"Level Designer", 1280, 720}, tilemap{width, height}, fg_tilemap{width, height}, level{level_name},
+      dt{0.1}, performance_frequency{SDL_GetPerformanceFrequency()}, prev_counter{SDL_GetPerformanceCounter()},
+      lag{0.0},
+      display_rect{0.0f, 0.0f, graphics.width * (1.0f / 2.0f), static_cast<float>(graphics.height)},
+      tiles_rect{
+          graphics.width * (1.0f / 2.0f), 0.0f, graphics.width * (1.0f / 2.0f), static_cast<float>(graphics.height)
+      } {
     update_title();
 
     AssetManager::get_level_details(graphics, level);
 
     // set up palette ids for tile selection
-    for (auto& [id, tile] : level.tile_types) {
+    for (auto& [id, tile]: level.tile_types) {
         palette_ids.push_back(id);
-        tile.sprite.shift = {0,0};
+        tile.sprite.shift = {0, 0};
     }
 
     // update the tilemap
-    for (const auto& [pos, tile_id] : level.tile_locations) {
+    // middle ground tiles
+    for (const auto& [pos, tile_id]: level.tile_locations) {
         tilemap(pos.x, pos.y) = level.tile_types[tile_id];
+    }
+    // foreground tiles
+    for (const auto& [pos, tile_id]: level.foreground_locations) {
+        fg_tilemap(pos.x, pos.y) = level.tile_types[tile_id];
     }
 }
 
@@ -44,55 +52,106 @@ void LevelDesigner::handle_event(SDL_Event *event) {
         float mouse_x = event->button.x;
         float mouse_y = event->button.y;
 
-        if (mouse_x > display_rect.x && mouse_y > display_rect.y && mouse_x < display_rect.x + display_rect.w && mouse_y < display_rect.y + display_rect.h) {
-            int grid_x = static_cast<int>((mouse_x - display_rect.x) / TILESIZE);
-            int grid_y = VISIBLE_MAP_HEIGHT - 1 - static_cast<int>((mouse_y - display_rect.y) / TILESIZE);
+        switch (mode) {
+            case DesignerMode::Middleground:
+            if (mouse_x > display_rect.x && mouse_y > display_rect.y && mouse_x < display_rect.x + display_rect.w && mouse_y < display_rect.y + display_rect.h) {
+                int grid_x = static_cast<int>((mouse_x - display_rect.x) / TILESIZE);
+                int grid_y = VISIBLE_MAP_HEIGHT - 1 - static_cast<int>((mouse_y - display_rect.y) / TILESIZE);
 
-            int tilemap_x = x_min + grid_x;
-            int tilemap_y = y_min + grid_y;
+                int tilemap_x = x_min + grid_x;
+                int tilemap_y = y_min + grid_y;
 
-            if (tilemap_x >= 0 && tilemap_x < tilemap.width && tilemap_y >= 0  && tilemap_y < tilemap.height) {
-                selected_tile = {tilemap_x, tilemap_y};
-            }
-            else {
-                selected_tile = {-1, -1};
-            }
-            update_title();
-            update_tilemap();
-        }
-        else if (mouse_x > tiles_rect.x && mouse_y > tiles_rect.y && mouse_x < tiles_rect.x + tiles_rect.w && mouse_y < tiles_rect.y + tiles_rect.h) {
-            float x_pos = mouse_x - tiles_rect.x - PADDING;
-            float y_pos = mouse_y - tiles_rect.y - PADDING;
-
-            if (x_pos >= 0 && y_pos >= 0) {
-                int col = x_pos / (TILESIZE + PADDING);
-                int row = y_pos / (TILESIZE + PADDING);
-                int index = row * COLUMNS + col;
-                selected_palette_id = index < palette_ids.size() ? palette_ids.at(index) : "";
+                if (tilemap_x >= 0 && tilemap_x < tilemap.width && tilemap_y >= 0  && tilemap_y < tilemap.height) {
+                    selected_tile = {tilemap_x, tilemap_y};
+                }
+                else {
+                    selected_tile = {-1, -1};
+                }
+                update_title();
                 update_tilemap();
             }
+            else if (mouse_x > tiles_rect.x && mouse_y > tiles_rect.y && mouse_x < tiles_rect.x + tiles_rect.w && mouse_y < tiles_rect.y + tiles_rect.h) {
+                float x_pos = mouse_x - tiles_rect.x - PADDING;
+                float y_pos = mouse_y - tiles_rect.y - PADDING;
+
+                if (x_pos >= 0 && y_pos >= 0) {
+                    int col = x_pos / (TILESIZE + PADDING);
+                    int row = y_pos / (TILESIZE + PADDING);
+                    int index = row * COLUMNS + col;
+                    selected_palette_id = index < palette_ids.size() ? palette_ids.at(index) : "";
+                    update_tilemap();
+                }
+            }
+            break;
+        }
+        switch (mode) {
+            case DesignerMode::Foreground:
+            if (mouse_x > display_rect.x && mouse_y > display_rect.y && mouse_x < display_rect.x + display_rect.w && mouse_y < display_rect.y + display_rect.h) {
+                int grid_x = static_cast<int>((mouse_x - display_rect.x) / TILESIZE);
+                int grid_y = VISIBLE_MAP_HEIGHT - 1 - static_cast<int>((mouse_y - display_rect.y) / TILESIZE);
+
+                int fg_tilemap_x = x_min + grid_x;
+                int fg_tilemap_y = y_min + grid_y;
+
+                if (fg_tilemap_x >= 0 && fg_tilemap_x < fg_tilemap.width && fg_tilemap_y >= 0  && fg_tilemap_y < fg_tilemap.height) {
+                    selected_tile = {fg_tilemap_x, fg_tilemap_y};
+                }
+                else {
+                    selected_tile = {-1, -1};
+                }
+                update_title();
+                update_fg_tilemap();
+            }
+            else if (mouse_x > tiles_rect.x && mouse_y > tiles_rect.y && mouse_x < tiles_rect.x + tiles_rect.w && mouse_y < tiles_rect.y + tiles_rect.h) {
+                float x_pos = mouse_x - tiles_rect.x - PADDING;
+                float y_pos = mouse_y - tiles_rect.y - PADDING;
+
+                if (x_pos >= 0 && y_pos >= 0) {
+                    int col = x_pos / (TILESIZE + PADDING);
+                    int row = y_pos / (TILESIZE + PADDING);
+                    int index = row * COLUMNS + col;
+                    selected_palette_id = index < palette_ids.size() ? palette_ids.at(index) : "";
+                    update_fg_tilemap();
+                }
+            }
+            break;
         }
     }
 }
 
+// DONE
 void LevelDesigner::input() {
     Uint64 now = SDL_GetPerformanceCounter();
     lag += ((now - prev_counter) / (double)performance_frequency);
     prev_counter = now;
     const bool* keys = SDL_GetKeyboardState(nullptr);
 
-    if ((keys[SDL_SCANCODE_DELETE] || keys[SDL_SCANCODE_BACKSPACE]) && selected_tile.x >= 0 && selected_tile.y >= 0) {
-        tilemap(selected_tile.x, selected_tile.y) = Tile{};
-    }
+    // Global shortcuts
     // RGUI & LGUI for CMD on mac
     if (keys[SDL_SCANCODE_S] && (keys[SDL_SCANCODE_LCTRL] || keys[SDL_SCANCODE_RCTRL] || keys[SDL_SCANCODE_LGUI] || keys[SDL_SCANCODE_RGUI])) {
         save();
     }
-    if (keys[SDL_SCANCODE_P]) {
-        place_player();
-    }
-    if (keys[SDL_SCANCODE_1]) {
-        place_enemy("stump");
+
+    // need switch here; don't include place player and enemy in foreground switch
+    switch (mode) {
+        case DesignerMode::Middleground:
+
+        if ((keys[SDL_SCANCODE_DELETE] || keys[SDL_SCANCODE_BACKSPACE]) && selected_tile.x >= 0 && selected_tile.y >= 0) {
+            tilemap(selected_tile.x, selected_tile.y) = Tile{};
+        }
+        if (keys[SDL_SCANCODE_P]) {
+            place_player();
+        }
+        if (keys[SDL_SCANCODE_1]) {
+            place_enemy("stump");
+        }
+            break;
+
+        case DesignerMode::Foreground:
+            if ((keys[SDL_SCANCODE_DELETE] || keys[SDL_SCANCODE_BACKSPACE]) && selected_tile.x >= 0 && selected_tile.y >= 0) {
+                fg_tilemap(selected_tile.x, selected_tile.y) = Tile{};
+            }
+            break;
     }
 
     // timer for scrolling
@@ -100,6 +159,7 @@ void LevelDesigner::input() {
         return;
     }
     lag = 0;
+
     if (keys[SDL_SCANCODE_LEFT]) {
         x_min--;
     }
@@ -112,6 +172,7 @@ void LevelDesigner::input() {
     else if (keys[SDL_SCANCODE_DOWN]) {
         y_min--;
     }
+
 }
 
 void LevelDesigner::render() {
@@ -120,39 +181,61 @@ void LevelDesigner::render() {
     // draw the main display
     graphics.draw(display_rect, Color{30, 30, 30, 255});
 
-    // draw the grid and tilemap
-    for (int y = 0; y < VISIBLE_MAP_HEIGHT; ++y) {
-        for (int x = 0; x < VISIBLE_MAP_WIDTH; ++x) {
-            int tilemap_x = x_min + x;
-            int tilemap_y = y_min + y;
-            // grid
-            if (tilemap_x >= 0 && tilemap_x < tilemap.width && tilemap_y >= 0  && tilemap_y < tilemap.height) {
-                float screen_x = display_rect.x + x * TILESIZE;
-                float screen_y = display_rect.y + (VISIBLE_MAP_HEIGHT - 1 - y) * TILESIZE;
+        // draw the grid and tilemap
+        for (int y = 0; y < VISIBLE_MAP_HEIGHT; ++y) {
+            for (int x = 0; x < VISIBLE_MAP_WIDTH; ++x) {
+                switch (mode) {
+                    case DesignerMode::Middleground: {
+                        int tilemap_x = x_min + x;
+                        int tilemap_y = y_min + y;
+                        // grid
+                        if (tilemap_x >= 0 && tilemap_x < tilemap.width && tilemap_y >= 0  && tilemap_y < tilemap.height) {
+                            float screen_x = display_rect.x + x * TILESIZE;
+                            float screen_y = display_rect.y + (VISIBLE_MAP_HEIGHT - 1 - y) * TILESIZE;
 
-                graphics.draw_sprite({screen_x, screen_y}, tilemap(tilemap_x, tilemap_y).sprite);
-                SDL_FRect rect{screen_x, screen_y, static_cast<float>(TILESIZE), static_cast<float>(TILESIZE)};
+                            graphics.draw_sprite({screen_x, screen_y}, tilemap(tilemap_x, tilemap_y).sprite);
+                            SDL_FRect rect{screen_x, screen_y, static_cast<float>(TILESIZE), static_cast<float>(TILESIZE)};
 
-                // highlight event tiles
-                if (!tilemap(tilemap_x, tilemap_y).event_name.empty()) {
-                    graphics.draw(rect, {255, 0, 0, 100});
-                }
-                Color color = selected_tile == Vec<int>{tilemap_x, tilemap_y} ? Color{255, 255, 0, 255} : Color{0, 0, 0, 255};
-                graphics.draw(rect, color, false);
+                            // highlight event tiles
+                            if (!tilemap(tilemap_x, tilemap_y).event_name.empty()) {
+                                graphics.draw(rect, {255, 0, 0, 100});
+                            }
+                            Color color = selected_tile == Vec<int>{tilemap_x, tilemap_y} ? Color{255, 255, 0, 255} : Color{0, 0, 0, 255};
+                            graphics.draw(rect, color, false);
 
-                // render player location as translucent purple
-                if (level.player_spawn_location.x == tilemap_x && level.player_spawn_location.y == tilemap_y) {
-                    graphics.draw(rect, {255, 0, 255, 100}, true);
-                }
+                            // render player location as translucent purple
+                            if (level.player_spawn_location.x == tilemap_x && level.player_spawn_location.y == tilemap_y) {
+                                graphics.draw(rect, {255, 0, 255, 100}, true);
+                            }
 
-                // draw transparent yellow if there is an enemy
-                if (level.enemy_locations.contains({static_cast<float>(tilemap_x), static_cast<float>(tilemap_y)})) {
-                    graphics.draw(rect, {255, 222, 33, 100});
+                            // draw transparent yellow if there is an enemy
+                            if (level.enemy_locations.contains({static_cast<float>(tilemap_x), static_cast<float>(tilemap_y)})) {
+                                graphics.draw(rect, {255, 222, 33, 100});
+                            }
+                        }
+                        break;
+                    }
+
+                    case DesignerMode::Foreground: {
+                        int fg_tilemap_x = x_min + x;
+                        int fg_tilemap_y = y_min + y;
+
+                        // grid
+                        if (fg_tilemap_x >= 0 && fg_tilemap_x < fg_tilemap.width && fg_tilemap_y >= 0  && fg_tilemap_y < fg_tilemap.height) {
+                            float screen_x = display_rect.x + x * TILESIZE;
+                            float screen_y = display_rect.y + (VISIBLE_MAP_HEIGHT - 1 - y) * TILESIZE;
+
+                            graphics.draw_sprite({screen_x, screen_y}, fg_tilemap(fg_tilemap_x, fg_tilemap_y).sprite);
+                            SDL_FRect rect{screen_x, screen_y, static_cast<float>(TILESIZE), static_cast<float>(TILESIZE)};
+
+                            Color color = selected_tile == Vec<int>{fg_tilemap_x, fg_tilemap_y} ? Color{255, 255, 0, 255} : Color{0, 0, 0, 255};
+                            graphics.draw(rect, color, false);
+                        }
+                        break;
+                    }
                 }
             }
         }
-    }
-
 
     // draw the tiles display
     graphics.draw(tiles_rect, Color{50, 50, 60, 255});
@@ -172,7 +255,8 @@ void LevelDesigner::draw_tile_display() {
 
         const std::string id = palette_ids.at(i);
         Tile& tile = level.tile_types.at(id);
-        //tile.sprite.shift = {0,0};
+        Uint8 alpha = 255;
+        // tile.sprite.shift = {0,0};
         graphics.draw_sprite({static_cast<float>(x), static_cast<float>(y)}, tile.sprite);
 
         // highlight
@@ -189,12 +273,36 @@ void LevelDesigner::update_tilemap() {
     }
 }
 
+// foreground
+void LevelDesigner::update_fg_tilemap() {
+    if (selected_tile.x >= 0 && selected_tile.y >= 0 && !selected_palette_id.empty()) {
+        fg_tilemap(selected_tile.x, selected_tile.y) = level.tile_types[selected_palette_id];
+    }
+}
+
+
 void LevelDesigner::save() {
-    level.tile_locations.clear();
-    for (int y = 0; y < tilemap.height; ++y) {
-        for (int x = 0; x < tilemap.width; ++x) {
-            if (tilemap(x, y).sprite.texture_id > -1) {
-                level.tile_locations[{x,y}] = tilemap(x,y).id;
+    switch (mode) {
+        case DesignerMode::Middleground: {
+            level.tile_locations.clear();
+            for (int y = 0; y < tilemap.height; ++y) {
+                for (int x = 0; x < tilemap.width; ++x) {
+                    if (tilemap(x, y).sprite.texture_id > -1) {
+                        level.tile_locations[{x,y}] = tilemap(x,y).id;
+                    }
+                }
+            }
+            break;
+            case DesignerMode::Foreground: {
+                level.foreground_locations.clear();
+                for (int y = 0; y < fg_tilemap.height; ++y) {
+                    for (int x = 0; x < fg_tilemap.width; ++x) {
+                        if (fg_tilemap(x, y).sprite.texture_id > -1) {
+                            level.foreground_locations[{x,y}] = fg_tilemap(x,y).id;
+                        }
+                    }
+                }
+                break;
             }
         }
     }
